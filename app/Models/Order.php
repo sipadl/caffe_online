@@ -15,4 +15,9 @@ class Order extends Model
     {
         return $this->hasOne('App\Models\Booked', 'id', 'id_booked');
     }
+
+    public function detail()
+    {
+        return $this->hasOne('App\Models\OrderDetail','id_order','id_order');
+    }
 }

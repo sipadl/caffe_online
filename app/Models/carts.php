@@ -14,4 +14,9 @@ class carts extends Model
     {
         return $this->hasMany('App\Models\Menu', 'id', 'id_menu');
     }
+
+    public function item()
+    {
+        return $this->hasOne('App\Models\Menu', 'id', 'id_menu');
+    }
 }

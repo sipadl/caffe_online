@@ -14,16 +14,16 @@
             <div class="d-flex justify-content-between">
                 <div class="right-side w-100">
                     <div class="d-flex">
-                        <img src="{{ $enum->img }}" width="64px" class="img-thumbnail" style="object-fit:contain" height="64px" alt="">
+                        <img src="{{ $enum->img }}" width="64px" class="img-thumbnail" style="object-fit:cover" height="64px" alt="">
                         <div class="detail px-2 p-1">
-                            <h5 class="m-0 p-0">{{$enum->nama}}</h5>
+                            <h6 class="m-0 p-0">{{$enum->nama}}</h6>
                             <p>
                             {{'Rp '. number_format($enum->harga,0)}}<br>
                         </p>
                         </div>
                     </div>
                 </div>
-                <div class="left-side w-50 align-self-end">
+                <div class="left-side w-25 align-self-end">
                     <div class="d-flex pb-2 justify-content-end">
                             <span>
                                 <a class="btn btn-info plus" href="javascript:;" data-id="{{ $enum->id }}">+</a>

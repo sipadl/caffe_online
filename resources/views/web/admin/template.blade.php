@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/basic.min.css">
-    <title>Admin Warung SS</title>
+    <title>Admin Kafe</title>
   </head>
   <body>
       @php
@@ -29,8 +29,8 @@
               <div class="nav navbar-nav">
               <a class="nav-item nav-link  active" href="{{ route('admin') }}">Home</a>
               <a class="nav-item nav-link " href="{{ route('meja') }}">Meja</a>
-              <a class="nav-item nav-link" href="#">Menu</a>
-              <a class="nav-item nav-link" href="#">Order</a>
+              <a class="nav-item nav-link" href="/menu">Menu</a>
+              <a class="nav-item nav-link" href="/order">Order</a>
             </div>
         </nav>
         <div class="d-flex">
@@ -63,7 +63,7 @@
             </div>
         </div>
         <!-- Optional JavaScript; choose one of the two! -->
-        
+
         <!-- Option 1: Bootstrap Bundle with Popper -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>

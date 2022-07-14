@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderDetail extends Model
+class MenuCategori extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'menu_categori';
 
-    function hehe()
+    public function menu()
     {
-        return $this->hasOne('App\Models\Order','id_order','id_order');
+        return $this->hasMany('App\Models\Menu','tipe', 'id');
     }
 }

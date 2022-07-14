@@ -14,4 +14,9 @@ class Booked extends Model
     {
         return $this->hasMany('App\Models\carts', 'id_booked');
     }
+
+    public function meja()
+    {
+        return $this->hasOne('App\Models\Meja','id','id_meja');
+    }
 }

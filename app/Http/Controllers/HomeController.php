@@ -45,12 +45,24 @@ class HomeController extends Controller
         }
     }
 
+
+    public function post_login(Request $request)
+    {
+        $user = Auth::attempt(['email' => $request->email, 'password' => $request->password ]);
+        if($user){
+            return redirect()->route('admin');
+        }else{
+            return redirect()->route('logins');
+        }
+    }
+
     public function resetMeja()
     {
         $meja = Meja::where('status','booked')->update([
             'status' => 'active'
         ]);
-        return response()->json(['status' => 'Berhasil', 'total meja' => $meja ]);
+        return redirect()->back();
+        // return response()->json(['status' => 'Berhasil', 'total meja' => $meja ]);
     }
 
     public function resetMejaById($id, Request $request)
@@ -64,12 +76,7 @@ class HomeController extends Controller
     public function admins()
     {
         $user = Auth::user();
-        if($user->email == 'admin@gmail.com'){
-
-            return view('web.admin.index');
-        }else{
-            return redirect()->route('home');
-        }
+        return view('web.admin.index');
     }
 
     public function mejas()
@@ -159,7 +166,11 @@ class HomeController extends Controller
 
     public function orders()
     {
-        $order = Order::with('booked')->get();
+        // $order = DB::table('bookeds b')
+        // ->select('b.*, name')
+        // ->rightJoin('users' ,'bookeds.user_id','=','users.id')
+        // ->where('user_id', '!=' ,null)->get();
+        $order = DB::select("SELECT b.*, u.name from bookeds b left join users u on b.user_id = u.id where b.user_id != ''");
         return view('web.admin.order',compact('order'));
     }
 

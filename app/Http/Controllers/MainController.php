@@ -200,6 +200,17 @@ class MainController extends Controller
         return view('web.front.pay',compact('user','booked','carts'));
     }
 
+
+    public function nota($id, Request $request)
+    {
+        $id = base64_decode($id);
+        $booked = Booked::where('id', $id )->first();
+        $carts = Carts::where('id_booked', $booked->id)->get();
+        $user = User::where('id', $booked->user_id)->latest()->first();
+
+        return view('web.front.nota',compact('user','booked','carts'));
+    }
+
     public function post_detail(Request $request)
     {
         dd($request->all());
