@@ -49,11 +49,7 @@ class HomeController extends Controller
     public function post_login(Request $request)
     {
         $user = Auth::attempt(['email' => $request->email, 'password' => $request->password ]);
-        if($user){
             return redirect()->route('admin');
-        }else{
-            return redirect()->route('logins');
-        }
     }
 
     public function resetMeja()

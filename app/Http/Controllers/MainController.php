@@ -25,6 +25,7 @@ class MainController extends Controller
     }
     public function index()
     {
+
         return view('web.front.login');
     }
 
@@ -39,7 +40,6 @@ class MainController extends Controller
 
         $checking = User::where('no_hp', $request->no_hp)->first();
         if($checking){
-
             $user = $checking;
         }else{
             $user = DB::table('users')->insertGetId([
@@ -105,7 +105,7 @@ class MainController extends Controller
         // dd($request->all());
         $id = base64_decode($request->kode);
         $Booked = Booked::where('id', $id )->first();
-        $auth = User::where('email', $Booked->no_telp.'@mail.com' )->first();
+        $auth = User::where('id', $Booked->user_id )->first();
         $menu = Menu::where('id',$request->menu)->first();
         $cart = Carts::where(['id_menu' => $request->menu, 'user_id' => $auth->id, 'id_booked' => $id])->first();
         if($cart){
@@ -213,21 +213,7 @@ class MainController extends Controller
 
     public function post_detail(Request $request)
     {
-        dd($request->all());
-        $order = Order::where('id_order', $request->kode)->first();
-        $data = [
-            'id_order'  => $request->kode,
-            'id_booked' => $order->id_booked,
-            'payment_type' => $request->bank,
-            'status' => 0,
-        ];
-        // dd($data);
-        $orderDetail = OrderDetail::create($data);
-        return response()->json([
-            'status' => ($orderDetail==true)?true:false,
-            'data' => $orderDetail,
-            'kode'  => base64_encode($order->id_booked)
-        ]);
+        return redirect()->route('nota',[$request->kode]);
     }
 
     public function barcode($id, Request $request)

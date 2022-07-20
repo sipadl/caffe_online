@@ -39,7 +39,7 @@ Route::get('barcode/{id}',[App\Http\Controllers\MainController::class,'barcode']
 
 Route::get('logins', function(){
     return view('web.admin.login_admin');
-});
+})->name('logins');
 
 Route::get('logouts', [App\Http\Controllers\HomeController::class, 'logouts'])->name('logouts');
 Route::post('post_login', [App\Http\Controllers\HomeController::class, 'post_login'])->name('post_login');

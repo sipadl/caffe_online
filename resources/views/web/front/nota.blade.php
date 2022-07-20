@@ -1,6 +1,6 @@
 @extends('template.main')
 @section('content')
-@section('title', 'Pembayaran QRIS Berhasil')
+@section('title', 'Pembayaran Berhasil')
 @section('style')
 <style>
 /* input[type="radio"]{

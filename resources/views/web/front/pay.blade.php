@@ -118,7 +118,7 @@
     </div>
   </div>
   <form action="{{ route('detail-orders') }}" method="post" enctype="multipart/form">
-    <div class="form-group row">
+    {{-- <div class="form-group row">
         <input type="hidden" name="kode" id="code" value="">
         <label for="" class="col-sm-4 control-label">Upload Bukti Pembayaran</label>
         <div class="col-sm-8">
@@ -132,7 +132,7 @@
                 </div>
               </div>
         </div>
-    </div>
+    </div> --}}
       <div class="fixed-botom" style="position: relative; text-align: -webkit-center">
         <button type="submit" class="btn btn-primary d-block w-100 p-2" style="border-radius:20px">Konfirmasi Pembayaran</button>
     </div>
